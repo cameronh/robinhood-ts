@@ -1,0 +1,38 @@
+{
+  "name": "robinhood-ts",
+  "version": "1.0.0",
+  "description": "A third party library to interact with Robinhood to mimic the functionality of the Robinhood app.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "start": "node dist/index.js"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "author": "Cameron Hudson",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "@types/axios-mock-adapter": "^1.10.0",
+    "@types/jest": "^23.3.2",
+    "axios-mock-adapter": "^1.15.0",
+    "jest": "^23.5.0",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
+  }
+}
