@@ -1,17 +1,14 @@
 import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-const mock = new MockAdapter(axios);
+import { login } from '../src/auth';
 
-beforeEach(() => {
-    mock.reset();
-});
+jest.mock('axios');
 
 describe('Authentication', () => {
-    it('Should receive a token upon logging in', () => {
-        expect(mock.onPost('/api-token-auth', 'username=cam&password=test').reply(200, {
-            token: 'test',
-        })).toEqual({
-            token: 'test',
-        });
+    it('Should receive a token upon logging in', async () => {
+        const resp = { data: { token: '' }};
+        (axios.post as any).mockResolvedValue(resp);
+
+        const result = await login();
+        return expect(result).toHaveProperty('token');
     });
 });

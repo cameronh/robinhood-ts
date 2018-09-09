@@ -7,7 +7,9 @@
     "rules": {
         "no-console": false,
         "quotemark": [true, "single"],
-        "eofline": false
+        "eofline": false,
+        "object-literal-sort-keys": false,
+        "no-trailing-whitespace": false
     },
     "rulesDirectory": []
 }
