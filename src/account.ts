@@ -10,4 +10,13 @@ export const accounts = async (token: string) => {
             Authorization: `Token ${token}`,
         },
     };
+
+    try {
+        const result = await axios(options);
+        return result.data;
+    } catch (error) {
+        if (error.response.data.hasOwnProperty('detail')) {
+            throw Error(error.response.data.detail);
+        }
+    }
 };

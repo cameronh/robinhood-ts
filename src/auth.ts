@@ -19,7 +19,7 @@ export const login = async (username: string, password: string) => {
         return result.data;
     } catch (error) {
         if (error.response.data.hasOwnProperty('non_field_errors')) {
-            throw Error('Unable to log in with provided credentials.');
+            throw Error(error.response.data.non_field_errors);
         }
     }
 };
@@ -40,7 +40,7 @@ export const logout = async (token: string) => {
         return result.data;
     } catch (error) {
         if (error.response.data.hasOwnProperty('detail')) {
-            throw Error('Invalid token.');
+            throw Error(error.response.data.detail);
         }
     }
 };
