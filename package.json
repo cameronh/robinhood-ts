@@ -22,7 +22,7 @@
     ]
   },
   "author": "Cameron Hudson",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0"
   },
