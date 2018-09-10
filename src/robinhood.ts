@@ -1,5 +1,5 @@
-import { accounts } from './account';
-import { login, logout } from './auth';
+import { accounts } from './lib/account';
+import { login, logout } from './lib/auth';
 
 class Robinhood {
     private token: string = '';
