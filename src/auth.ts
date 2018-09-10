@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { API_TOKEN_AUTH, API_TOKEN_LOGOUT } from './util';
+import { endpoints } from './util';
 
 export const login = async (username: string, password: string) => {
     const options: AxiosRequestConfig = {
-        url: API_TOKEN_AUTH,
+        url: endpoints.login,
         method: 'POST',
         data: {
             username,
@@ -14,28 +14,33 @@ export const login = async (username: string, password: string) => {
         },
     };
 
-    const result = await axios(options);
-    if (result.data.token === undefined) {
-        throw Error('Unable to log in with provided credentials.');
+    try {
+        const result = await axios(options);
+        return result.data;
+    } catch (error) {
+        if (error.response.data.hasOwnProperty('non_field_errors')) {
+            throw Error('Unable to log in with provided credentials.');
+        }
     }
-
-    return result.data;
 };
 
 export const logout = async (token: string) => {
     const options: AxiosRequestConfig = {
-        url: API_TOKEN_LOGOUT,
+        url: endpoints.logout,
         method: 'POST',
         data: '',
         headers: {
+            Accept: 'application/json',
             Authorization: `Token ${token}`,
         },
     };
     
-    const result = await axios(options);
-    if (result.data.detail) {
-        throw Error('Invalid token.');
+    try {
+        const result = await axios(options);
+        return result.data;
+    } catch (error) {
+        if (error.response.data.hasOwnProperty('detail')) {
+            throw Error('Invalid token.');
+        }
     }
-
-    return result.data;
 };
