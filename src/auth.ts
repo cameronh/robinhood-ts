@@ -31,7 +31,11 @@ export const logout = async (token: string) => {
             Authorization: `Token ${token}`,
         },
     };
+    
     const result = await axios(options);
+    if (result.data.detail) {
+        throw Error('Invalid token.');
+    }
 
     return result.data;
 };

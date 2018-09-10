@@ -1,3 +1,3 @@
-const BASE_URL              = 'https://api.robinhood.com';
-const API_TOKEN_AUTH        = '/api-token-auth/';
-const API_TOKEN_LOGOUT      = '/api-token-logout/';
+export const BASE_URL              = 'https://api.robinhood.com';
+export const API_TOKEN_AUTH        = BASE_URL + '/api-token-auth/';
+export const API_TOKEN_LOGOUT      = BASE_URL + '/api-token-logout/';
