@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
+import OAuth2Token from './oauth2Token';
 import { endpoints } from './util';
 
 export const login = async (username: string, password: string) => {
@@ -8,6 +9,10 @@ export const login = async (username: string, password: string) => {
         data: {
             username,
             password,
+            grant_type: 'password',
+            scope: 'internal',
+            expires_in: 86400,
+            client_id: 'c82SH0WZOsabOXGP2sxqcj34FxkvfnWRZBKlBjFS',
         },
         headers: {
             Accept: 'application/json',
@@ -24,7 +29,7 @@ export const login = async (username: string, password: string) => {
     }
 };
 
-export const logout = async (token: string) => {
+export const logout = async (token: OAuth2Token) => {
     const options: AxiosRequestConfig = {
         url: endpoints.logout,
         method: 'POST',

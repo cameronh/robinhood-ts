@@ -1,13 +1,15 @@
-import { accounts } from './lib/account';
+import { accounts, IAccountInfo } from './lib/account';
 import { login, logout } from './lib/auth';
+import IOAuth2Token from './lib/oauth2Token';
 
 class Robinhood {
-    private token: string = '';
+    private token: IOAuth2Token = {};
+    private accountInfo: IAccountInfo = {};
     private isLoggedIn: boolean = false;
     
     public async login(username: string, password: string) {
         this.token = await login(username, password);
-        this.token !== '' ? this.isLoggedIn = true : this.isLoggedIn = false;
+        this.token.access_token !== '' ? this.isLoggedIn = true : this.isLoggedIn = false;
 
         return this.isLoggedIn;
     }
@@ -17,7 +19,9 @@ class Robinhood {
     }
 
     public async getAccount() {
-        return await accounts(this.token);
+        this.accountInfo = await accounts(this.token);
+
+        return this.accountInfo;
     }
 }
 
