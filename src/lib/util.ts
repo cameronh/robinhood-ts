@@ -1,20 +1,20 @@
-export const BaseURL = 'https://api.robinhood.com';
-export const BaseURLCrypto = 'https://nummus.robinhood.com';
+export const APIBaseURL = 'https://api.robinhood.com';
+export const APIBaseURLCrypto = 'https://nummus.robinhood.com';
 
-export const Endpoints = {
-    login: BaseURL + '/oauth2/token/',
-    logout: BaseURL + '/api-token-logout/',
-    accounts: BaseURL + '/accounts/',
+export const APIEndpoints = {
+    login: APIBaseURL + '/oauth2/token/',
+    logout: APIBaseURL + '/api-token-logout/',
+    accounts: APIBaseURL + '/accounts/',
 };
 
-export const EndpointsCrypto = {
-    currencyPairs: BaseURLCrypto + '/currency_pairs',
-    orders: BaseURLCrypto + '/orders',
-    holdings: BaseURLCrypto + '/holdings',
-    quotes: BaseURL + '/marketdata/forex/quotes/',
+export const APIEndpointsCrypto = {
+    currencyPairs: APIBaseURLCrypto + '/currency_pairs',
+    orders: APIBaseURLCrypto + '/orders',
+    holdings: APIBaseURLCrypto + '/holdings',
+    quotes: APIBaseURL + '/marketdata/forex/quotes/',
 };
 
-export const Headers = {
+export const APIHeaders = {
     'accept': 'application/json',
     'accept-encoding': 'gzip, deflate',
     'accept-language': 'en;q=1, fr;q=0.9, de;q=0.8, ja;q=0.7, nl;q=0.6, it;q=0.5',

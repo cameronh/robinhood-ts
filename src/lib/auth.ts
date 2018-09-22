@@ -1,10 +1,10 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import OAuth2Token from './oauth2Token';
-import { Endpoints, Headers } from './util';
+import { APIEndpoints, APIHeaders } from './util';
 
 export const login = async (username: string, password: string) => {
     const options: AxiosRequestConfig = {
-        url: Endpoints.login,
+        url: APIEndpoints.login,
         method: 'POST',
         data: {
             username,
@@ -14,7 +14,7 @@ export const login = async (username: string, password: string) => {
             expires_in: 86400,
             client_id: 'c82SH0WZOsabOXGP2sxqcj34FxkvfnWRZBKlBjFS',
         },
-        headers: Headers,
+        headers: APIHeaders,
     };
 
     try {
@@ -29,7 +29,7 @@ export const login = async (username: string, password: string) => {
 
 export const logout = async (token: OAuth2Token) => {
     const options: AxiosRequestConfig = {
-        url: Endpoints.logout,
+        url: APIEndpoints.logout,
         method: 'POST',
         data: '',
         headers: {
