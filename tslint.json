@@ -9,7 +9,8 @@
         "quotemark": [true, "single"],
         "eofline": false,
         "object-literal-sort-keys": false,
-        "no-trailing-whitespace": false
+        "no-trailing-whitespace": false,
+        "max-line-length": false
     },
     "rulesDirectory": []
 }

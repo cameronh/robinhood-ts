@@ -1,15 +1,12 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import OAuth2Token from './oauth2Token';
-import { endpoints } from './util';
+import { Endpoints, Headers } from './util';
 
 export const accounts = async (token: OAuth2Token): Promise<IAccountInfo> => {
     const options: AxiosRequestConfig = {
-        url: endpoints.accounts,
+        url: Endpoints.accounts,
         method: 'GET',
-        headers: {
-            Accept: 'application/json',
-            Authorization: `Bearer ${token.access_token}`,
-        },
+        headers: { ...Headers, Authorization: `Bearer ${token.access_token}` },
     };
 
     try {
