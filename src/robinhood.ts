@@ -23,6 +23,14 @@ class Robinhood {
 
         return this.accountInfo;
     }
+
+    public async getCryptoHoldings() {
+        if (this.accountInfo) {
+            return this.accountInfo.url;
+        }
+
+        return;
+    }
 }
 
 export default Robinhood;

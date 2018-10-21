@@ -5,6 +5,7 @@ export const APIEndpoints = {
     login: APIBaseURL + '/oauth2/token/',
     logout: APIBaseURL + '/api-token-logout/',
     accounts: APIBaseURL + '/accounts/',
+    holdings: APIBaseURL + '/holdings/',
 };
 
 export const APIEndpointsCrypto = {
